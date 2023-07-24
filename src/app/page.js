@@ -18,17 +18,17 @@ export default function RandomUserPage() {
       return;
     }
     const strUser = JSON.stringify(genAmount);
-    localStorage.setItem("genAmount", strUser);
+    localStorage.setItem("genAmount", strUser); //set เป็น setUser ที่เป็น string ลง genAmount
   }, [genAmount]);
 
   useEffect(() => {
-    const strGen = localStorage.getItem("genAmount");
+    const strGen = localStorage.getItem("genAmount"); //ดึงมาจากก่อนหน้า
     if (strGen == null) {
       setGenAmount([]);
       return;
     }
-    const localGenAmount = JSON.parse(strGen);
-    setGenAmount(localGenAmount);
+    const localGenAmount = JSON.parse(strGen); //string to object
+    setGenAmount(localGenAmount); //change use state เป็นที่ใ่ส่ไปก่อนหน้้า
   }, []);
 
   const generateBtnOnClick = async () => {
